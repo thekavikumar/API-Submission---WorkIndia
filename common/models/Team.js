@@ -1,19 +1,15 @@
-// TeamModel.js
 const { DataTypes } = require("sequelize");
 
 const TeamModel = {
-  player_id: {
+  team_id: {
     type: DataTypes.INTEGER,
     autoIncrement: true,
     primaryKey: true,
   },
-  name: {
-    type: DataTypes.STRING,
+  squad: {
+    type: DataTypes.JSON,
     allowNull: false,
-  },
-  role: {
-    type: DataTypes.STRING,
-    allowNull: false,
+    defaultValue: [], // Default value is an empty array
   },
 };
 
@@ -25,5 +21,11 @@ module.exports = {
   },
   create: (data) => {
     return this.model.create(data);
+  },
+  findByPk: (id) => {
+    return this.model.findByPk(id);
+  },
+  update: (data, options) => {
+    return this.model.update(data, options);
   },
 };

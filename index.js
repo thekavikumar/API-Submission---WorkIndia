@@ -17,6 +17,7 @@ const UserModel = require("./common/models/User");
 const MatchModel = require("./common/models/Match");
 const PlayerStatsModel = require("./common/models/PlayerStats");
 const TeamModel = require("./common/models/Team");
+const PlayerModel = require("./common/models/Player");
 
 app.use(morgan("tiny"));
 app.use(cors());
@@ -32,6 +33,7 @@ UserModel.initialise(sequelize);
 MatchModel.initialise(sequelize);
 PlayerStatsModel.initialise(sequelize);
 TeamModel.initialise(sequelize);
+PlayerModel.initialise(sequelize);
 
 // Syncing the models that are defined on sequelize with the tables that alredy exists
 // in the database. It creates models as tables that do not exist in the DB.
