@@ -3,6 +3,9 @@ const cors = require("cors");
 const morgan = require("morgan");
 const { Sequelize } = require("sequelize");
 const { port } = require("./config");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || port;
@@ -23,11 +26,16 @@ app.use(morgan("tiny"));
 app.use(cors());
 app.use(express.json());
 
-const sequelize = new Sequelize("assignment", "root", "password", {
-  host: "localhost",
-  port: 3306,
-  dialect: "mysql",
-});
+const sequelize = new Sequelize(
+  process.env.DB_NAME,
+  process.env.DB_USER,
+  process.env.DB_PASSWORD,
+  {
+    host: process.env.DB_HOST || "localhost",
+    port: process.env.DB_PORT || 3306,
+    dialect: "mysql",
+  }
+);
 
 UserModel.initialise(sequelize);
 MatchModel.initialise(sequelize);

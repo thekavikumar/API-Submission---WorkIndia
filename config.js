@@ -3,7 +3,7 @@ module.exports = {
   jwtSecret: "!!SDEAssignment@!!",
   jwtExpirationInSeconds: 60 * 60, // 1 hour
   roles: {
-    USER: "user",
+    USER: "GUEST",
     ADMIN: "admin",
   },
 };
