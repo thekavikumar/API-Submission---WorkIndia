@@ -8,11 +8,7 @@ module.exports = {
       // Create the player first
       const player = await PlayerModel.create(req.body);
       const team = await TeamModel.findByPk(team_id);
-
-      // Update the team's squad by adding the newly created player
       const updatedSquad = [...team.squad, player];
-
-      // Update the team's squad in the database
       await TeamModel.update({ squad: updatedSquad }, { where: { team_id } });
 
       return res.status(200).json({
