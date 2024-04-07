@@ -94,13 +94,13 @@ Authorization: Bearer your_jwt_token
 2. Build the Docker image:
 
 ```bash
-docker build -t api-assignment .
+docker build -t cricbuzz-platform .
 ```
 
 3. Run the Docker container:
 
 ```bash
-docker run -p 3000:3000 -d api-assignment
+docker run -p 3000:3000 -d cricbuzz-platform
 ```
 
 ## Contributing
